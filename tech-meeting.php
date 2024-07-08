@@ -5,8 +5,7 @@
  * Description: This plugin is a starting point for creating custom Gutenberg blocks.
  * Version: 1.0
  * Author: Aldrick
- * Author URI: github.com/aldair-meneses
- 
+ * Author URI: github.com/aldair-meneses 
 */ 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +18,10 @@ function tech_meeting_register_blocks() {
     foreach ( $blocks_dirs as $block_dir )  {
         $block_json = file_get_contents("$block_dir/block.json");
         $block_json_content = json_decode($block_json, true);
-        $block_name = str_replace('/', '-', $block_json_content['name']);
+        $block_namespace = $block_json_content['name'];
+        $block_name = preg_replace('/^[^\/]*\//', '', $block_namespace);
         register_block_type( __DIR__ . "/build/blocks/$block_name" );
     }
 }
+
+add_action( 'init', 'tech_meeting_register_blocks' );
