@@ -1,0 +1,25 @@
+{
+  "name": "gutenberg-blocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "wp-env": "wp-env",
+    "cli": "wp-env run cli",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@wordpress/env": "^10.2.0",
+    "@wordpress/scripts": "^27.9.0"
+  }
+}
